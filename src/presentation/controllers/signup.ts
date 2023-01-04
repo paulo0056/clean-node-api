@@ -2,7 +2,8 @@
 import { HttpResponse, HttpRequest } from "../protocols/http";
 import { MissingParamError } from "../errors/missing-param.error";
 import { badRequest } from "../helpers/httpHelper";
-export class SignUpController {
+import { Controller } from "../protocols/controller";
+export class SignUpController implements Controller {
   handle(httpRequest: HttpRequest): HttpResponse {
     const requiredFields = [
       "name",
@@ -15,6 +16,6 @@ export class SignUpController {
         return badRequest(new MissingParamError(field));
       }
     }
-    return badRequest(new MissingParamError("ocorreu um erro"));
+    throw new Error("Shouldn't be reachable");
   }
 }
