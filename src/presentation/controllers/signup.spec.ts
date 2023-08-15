@@ -9,8 +9,10 @@ interface SutTypes {
 }
 
 const makeSut = (): SutTypes => {
+  //factory
   // ''implements'' make sure that the class is respecting the protocol that will be defined in the production class
   class EmailValidatorStub implements EmailValidator {
+    // stub = dublé de teste(mock)
     //todo remove esling-disable soon
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isValid(email: string): boolean {
